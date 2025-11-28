@@ -91,9 +91,10 @@ class LoginController extends GetxController {
 
   Future<void> clearlogin() async {
     final preference = await SharedPreferences.getInstance();
+    await preference.setString("userState", "firstimelogin");
+    usertype.value="firsttimelogin";
     await preference.remove("email");
     await preference.remove("password");
-    await preference.remove("userState");
 
   }
 }
